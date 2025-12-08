@@ -1,11 +1,13 @@
 "use server";
 import prisma from "@/lib/db";
 import { currentUser } from "@clerk/nextjs/server";
+import type { user as PrismaUser } from "@prisma/client";
+
 
 type TOnboardUser = () => Promise<{
     success: boolean;
     message: string;
-    user?: object;
+    user?: PrismaUser;
 }>;
 
 export const onBoardUser: TOnboardUser = async () => {
@@ -33,7 +35,7 @@ export const onBoardUser: TOnboardUser = async () => {
         if (!existingUser || (imageUrl && imageUrl !== existingUser.imageUrl)) updateData.imageUrl = imageUrl || "";
         if (!existingUser || (email && email !== existingUser.email)) updateData.email = email;
 
-        const newUser = await prisma.user.upsert({
+        const upsertUser = await prisma.user.upsert({
             where: { clerkId },
             update: updateData,
             create: {
@@ -48,7 +50,7 @@ export const onBoardUser: TOnboardUser = async () => {
         return {
             success: true,
             message: "User onboarded successfully",
-            user: newUser,
+            user: upsertUser,
         };
 
     } catch (error) {
