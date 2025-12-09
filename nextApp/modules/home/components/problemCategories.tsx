@@ -50,7 +50,7 @@ const ProblemCategories = () => {
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
                     Pick Your{" "}
-                    <span className="text-indigo-600 dark:text-indigo-400">
+                    <span className="text-[#3d0ef6] dark:text-indigo-400">
                         Next Challenge
                     </span>
                 </h2>

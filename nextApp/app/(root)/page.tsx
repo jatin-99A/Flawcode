@@ -50,18 +50,20 @@ export default async function Home() {
 
 
   return (
-    <div className="home">
-       <div className="absolute inset-0 -z-10 w-full h-screen bg-[radial-gradient(#dadde2_1px,transparent_1px)] bg-repeat bg-size-[16px_16px] dark:bg-[radial-gradient(#393e4a_1px,transparent_1px)] dark:bg-repeat dark:bg-size- dark:bg-top-left">
-
-      <LandingPage />
+    <div className="w-full h-full mt-10">
+      {/* LANDING SECTION */}
+      <section id="landing">
+        <div className="absolute inset-0 -z-10 w-full h-screen bg-[radial-gradient(#dadde2_1px,transparent_1px)] bg-repeat bg-size-[16px_16px] dark:bg-[radial-gradient(#393e4a_1px,transparent_1px)] dark:bg-repeat dark:bg-size- dark:bg-top-left" />
+        <LandingPage />
+      </section>
 
       {/* FEATURES */}
-      <section id="features" className="py-24 bg-gray-50 dark:bg-neutral-900/50">
+      <section id="features" className="py-24 bg-gray-50 dark:bg-[#111111] rounded-md">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
               Tools to Help You{" "}
-              <span className="text-[#5A25FF]">
+              <span className="text-[#3d0ef6]">
                 Level Up
               </span>
             </h2>
@@ -79,15 +81,13 @@ export default async function Home() {
               >
                 <CardHeader>
                   <div
-                    className={`w-12 h-12 ${
-                      index % 2 === 0
+                    className={`w-12 h-12 ${index % 2 === 0
                         ? "bg-amber-100 dark:bg-amber-900"
                         : "bg-indigo-100 dark:bg-indigo-900"
-                    } rounded-xl flex items-center justify-center ${
-                      index % 2 === 0
+                      } rounded-xl flex items-center justify-center ${index % 2 === 0
                         ? "text-amber-600 dark:text-amber-400"
                         : "text-indigo-600 dark:text-indigo-400"
-                    } mb-4`}
+                      } mb-4`}
                   >
                     {feature.icon}
                   </div>
@@ -116,7 +116,6 @@ export default async function Home() {
         <CTA />
       </section>
 
-    </div>
     </div>
   );
 }

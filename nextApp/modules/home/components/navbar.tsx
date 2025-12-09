@@ -22,7 +22,7 @@ const Navbar = ({ role }: { role: string }) => {
   }
 
   return (
-    <nav className="h-20 w-[95vw] max-w-[1536px] mt-4 flex items-center justify-between px-9 fixed bg-white dark:bg-[black] rounded-b-3xl shadow-[0_0_10px_rgba(0,0,0,0.2)] dark:shadow-[0_0_1px_#FFFFFF]">
+    <nav className="h-20 w-[95vw] max-w-[1536px] flex items-center justify-between px-9 fixed top-4 z-50 bg-white dark:bg-[black] rounded-b-3xl shadow-[0_0_10px_rgba(0,0,0,0.2)] dark:shadow-[0_0_1px_#FFFFFF]">
 
       <section className="">
         <Logo />

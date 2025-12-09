@@ -8,7 +8,7 @@ const RootLayout = ({ children }: Readonly<{
     return (
         <div className='flex flex-col items-center w-full h-full'>
             <Navbar role={""} />
-            <div className='flex-1 flex flex-col px-4 pb-4'>
+            <div className='flex-1 flex items-center flex-col px-4 pb-4'>
                 {children}
             </div>
         </div>
