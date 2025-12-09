@@ -1,46 +1,47 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
+# Node modules
 /node_modules
+
+# Yarn / PnP
 /.pnp
 .pnp.*
 .yarn/*
+
+# Depedencies
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# Testing
 /coverage
 
-# next.js
+# Next.js build outputs
 /.next/
 /out/
-
-# production
 /build
 
-# misc
+# Prisma generated files
+nextApp/app/generated/prisma/
+
+# Misc
 .DS_Store
 *.pem
 
-# debug
+# Debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# Environment files
 .env*
 
-# vercel
+# Vercel
 .vercel
 
-# typescript
+# TypeScript
 *.tsbuildinfo
 next-env.d.ts
 
-/lib/generated/prisma
-
-# clerk configuration (can include secrets)
-/.clerk/
+# Clerk configuration (if used)
+.clerk/
