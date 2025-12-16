@@ -7,8 +7,10 @@ import { Menu, X } from 'lucide-react'
 import { useRef, useState } from 'react'
 import ActiveLink from './activeLink'
 import Logo from './logo'
+import { IUser } from '@/types/types'
+import { UserRole } from '@prisma/client'
 
-const Navbar = ({ role }: { role: string }) => {
+const Navbar = ({ role }: {role : IUser["role"]}) => {
   const menuDivRef = useRef<HTMLDivElement | null>(null);
   const [isAsideMenu, setIsAsideMenu] = useState<boolean>(false);
 
@@ -32,18 +34,18 @@ const Navbar = ({ role }: { role: string }) => {
 
         <section className="flex gap-5 text-gray-500 font-bold mx-auto">
 
-          <ActiveLink href={"/"} activeClass='text-black dark:text-white' className='hover:text-black dark:hover:text-white'>Home</ActiveLink>
+          <ActiveLink href={"/"} activeClass='text-black dark:text-white' className='hover:text-black dark:hover:text-white hover:scale-[1.05] duration-200'>Home</ActiveLink>
 
-          <ActiveLink href={"/problem"} activeClass='text-black dark:text-white' className='hover:text-black dark:hover:text-white'>Problem</ActiveLink>
+          <ActiveLink href={"/problem"} activeClass='text-black dark:text-white' className='hover:text-black dark:hover:text-white hover:scale-[1.05] duration-200'>Problem</ActiveLink>
 
-          <ActiveLink href={"/about"} activeClass='text-black dark:text-white' className='hover:text-black dark:hover:text-white'>About</ActiveLink>
+          <ActiveLink href={"/about"} activeClass='text-black dark:text-white' className='hover:text-black dark:hover:text-white hover:scale-[1.05] duration-200'>About</ActiveLink>
 
-          <ActiveLink href={"/profile"} activeClass='text-black dark:text-white' className='hover:text-black dark:hover:text-white'>Profile</ActiveLink>
+          <ActiveLink href={"/profile"} activeClass='text-black dark:text-white' className='hover:text-black dark:hover:text-white hover:scale-[1.05] duration-200'>Profile</ActiveLink>
 
         </section>
 
         <section className="flex gap-3">
-          {role === "admin" && <Button variant="outline">Add problem</Button>}
+          {role === UserRole.ADMIN && <Button variant="outline">Add problem</Button>}
 
           <ModeToggle />
 

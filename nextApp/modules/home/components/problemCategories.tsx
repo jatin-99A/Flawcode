@@ -6,24 +6,17 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { IProblemCategory } from "@/types/types";
 
 
 const ProblemCategories = () => {
 
-    type ProblemCategory = {
-        level: string;
-        title: string;
-        description: string;
-        count: string;
-        color: "amber" | "indigo";
-    };
-
-    const problemCategories: ProblemCategory[] = [
+    const problemCategories: IProblemCategory[] = [
         {
             level: "Beginner",
             title: "Easy Problems",
             description:
-                "Build a solid foundation with beginner-friendly problems focused on core concepts and syntax clarity.",
+                "Build a solid foundation with beginner friendly problems focused on core concepts and syntax clarity.",
             count: "500+ Problems",
             color: "amber",
         },
@@ -39,7 +32,7 @@ const ProblemCategories = () => {
             level: "Advanced",
             title: "Hard Problems",
             description:
-                "Master complex algorithms and prepare yourself for competitive programming and top-tier interviews.",
+                "Master complex algorithms and prepare yourself for competitive programming and top tier interviews.",
             count: "300+ Problems",
             color: "amber",
         },
@@ -65,8 +58,8 @@ const ProblemCategories = () => {
                     <Card
                         key={index}
                         className={`border-2 hover:shadow-lg transition-all duration-200 ${category.color === "amber"
-                            ? "bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800 hover:border-amber-300 dark:hover:border-amber-700"
-                            : "bg-indigo-50 dark:bg-indigo-950/30 border-indigo-200 dark:border-indigo-800 hover:border-indigo-300 dark:hover:border-indigo-700"
+                            ? "bg-amber-50 dark:bg-amber-950/30 backdrop-blur-sm border-amber-200 dark:border-amber-800 hover:border-amber-300 dark:hover:border-amber-700"
+                            : "bg-indigo-50 dark:bg-indigo-950/30 backdrop-blur-sm bg border-indigo-200 dark:border-indigo-800 hover:border-indigo-300 dark:hover:border-indigo-700"
                             }`}
                     >
                         <CardHeader>

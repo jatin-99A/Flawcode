@@ -1,18 +1,14 @@
 "use server";
 import prisma from "@/lib/db";
-import { currentUser } from "@clerk/nextjs/server";
-import type { user as PrismaUser } from "@prisma/client";
+import { TOnboardUser } from "@/types/types";
+import { currentUser as currentUserClerk } from "@clerk/nextjs/server";
+import { User } from "@/app/generated/prisma";
 
 
-type TOnboardUser = () => Promise<{
-    success: boolean;
-    message: string;
-    user?: PrismaUser;
-}>;
-
+// Onboards the current Clerk user by creating or updating their record in the database
 export const onBoardUser: TOnboardUser = async () => {
     try {
-        const user = await currentUser();
+        const user = await currentUserClerk();
 
         if (!user) return { success: false, message: "No authenticated user found" };
 
@@ -56,4 +52,18 @@ export const onBoardUser: TOnboardUser = async () => {
     } catch (error) {
         return { success: false, message: "Something went wrong" };
     }
+};
+
+// Returns the currently authenticated user from the database
+export const getCurrentUser = async (): Promise<User | null> => {
+  try {
+    const user = await currentUserClerk();
+    if (!user) return null;
+    
+    return await prisma.user.findUnique({
+      where: { clerkId: user.id },
+    });
+  } catch {
+    return null;
+  }
 };
